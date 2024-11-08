@@ -1,6 +1,6 @@
 # The Protocol Details
 The service uses two distinct ways of communication, HTTP with the client and
-plain socket connection(?) between nodes.
+plaintext messages over TCP between nodes.
 
 ## Server-to-server communication
 The server nodes communicate between themselves when the user initiates a
@@ -13,7 +13,44 @@ from another server if needed and serve it to the client.
 
 As such, the protocol needs to support both the checking of existence and
 timestamps in one call, and the request to provide data to another node in
-another.
+another. Should time allow, the idea of a file name set index has also been
+discussed as a third feature.
+
+### Behaviour on checking for modification time
+Status as of 2024-11-08: Suggestions only, to use as a direction in further
+design.
+
+To ensure the most recent file is provided, the server contacts its peers with
+a version check message. The message follows the format
+`Last-Modified-Check <filename>`.
+
+The peer servers respond to the query with
+`Last-Modified <filename> <timestamp>`.
+
+### Behaviour on fetching files
+Status as of 2024-11-08: Suggestions only, to use as a direction in further
+design.
+
+To request the most recent version of the file from its peer, the server sends
+a message containing `File-Provision-Request <filename>` to which the other
+server answers by `File-Provision <filename>\n <file data>`.
+
+### Behaviour on forming the file index
+Status as of 2024-11-08: Provisionary feature, may not be part of end product.
+
+To request a listing of all the files on the service, a server sends out the
+message `Index-Listing-Request` to its peers.
+
+The peers respond to this with a message beginning with the line `Index-Listing`
+and followed by all the filenames present on that node separated by linebreaks,
+e.g.
+```
+Index-Listing
+file1
+file2
+file3
+file4
+```
 
 ## Client-to-server-to-client communication
 The client establishes connection to the server with a message following the
