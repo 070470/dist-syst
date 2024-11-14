@@ -63,8 +63,15 @@ which of them has the most recent file and then provide it to the client. We
 respond with code `404` if no such file exists, or `200` with the requested
 data if the file is found from the service.
 
+A request from the client should be formatted in the way that the URI-path
+includes the filename after the server address, and little else.
+
 ### POST request
 On a `POST` request, the user sends a file to the service. The server accepts
 and stores the file, returning `204` and no further content. The servers do NOT
 immediately share the file between one another, but wait for it to be requested
 instead.
+
+A request from the client should be formatted so that it includes the desired
+filename and actual file contents as fields in the POST request. The fields to
+use are `name` for the filename and `file` for the contents.
