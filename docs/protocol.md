@@ -25,7 +25,7 @@ a version check message. The message follows the format
 `Last-Modified-Check <filename>`.
 
 The peer servers respond to the query with
-`Last-Modified <filename> <timestamp>`.
+`Last-Modified <filename> <timestamp> <node-ID>`.
 
 ### Behaviour on fetching files
 Status as of 2024-11-08: Suggestions only, to use as a direction in further
