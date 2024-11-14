@@ -73,5 +73,7 @@ immediately share the file between one another, but wait for it to be requested
 instead.
 
 A request from the client should be formatted so that it includes the desired
-filename and actual file contents as fields in the POST request. The fields to
-use are `name` for the filename and `file` for the contents.
+filename and actual file contents as form fields in the POST request. The field
+names to use are `name` for the filename and `file` for the contents. Processing
+the input as form data allows the upload of binary files and allows us to avoid
+URL-encoding all the inputs.
