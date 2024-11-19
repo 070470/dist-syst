@@ -6,7 +6,8 @@ import threading
 import time
 
 # This code implements the server side functionality of the distributed file
-# sharing system, assuming client communication by HTTP messages passed via sockets.
+# sharing system, assuming client-server and server-server 
+# communication through HTTP messages passed via sockets.
 # Commenting still in progress!
 
 HOST = "127.0.0.1"
