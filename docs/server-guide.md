@@ -1,6 +1,6 @@
 # Server guide
 ## Code
-The code, found here in the repository in three different versions (one copy for each server),
+The code, to be found here in the repository in three different versions (one copy for each server),
 implements the client-server and inter-server message transfer as described in the architecture and
 protocol specifications.
 
