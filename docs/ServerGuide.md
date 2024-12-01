@@ -103,6 +103,7 @@ curl -F "file=@test.txt" http://128.214.11.91:65421/file/test.txt
 ```
 
 # Verify file existence
+```bash
 ls -l distfiles/test.txt
 
 # Test retrieval from all servers (all should show identical content)
