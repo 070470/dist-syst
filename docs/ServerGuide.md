@@ -114,7 +114,6 @@ curl http://128.214.9.26:65423/file/test.txt
 
 ### Version Control Test
 
-1. Update File Test:
 ```bash
 # Create updated version
 echo "This is version 2 - timestamp: $(date)" > test.txt
