@@ -51,10 +51,6 @@ NODES = config['NODES']
 STORAGE = config['STORAGE']
 LOG_FILE = config['LOG_FILE']
 
-# ====== File System Setup ======
-STORAGE = "./distfiles"  # Local directory where files are stored
-LOG_FILE = "server1.log" # Log file for this server instance
-
 # Create storage directory if missing - ensures application doesn't fail on first run
 if not os.path.exists(STORAGE):
     os.makedirs(STORAGE, exist_ok=True)
