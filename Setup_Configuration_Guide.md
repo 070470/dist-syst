@@ -1,6 +1,9 @@
 # Distributed File Service Setup Guide
 
 ## Server Access
+
+> Note: While IP addresses are still used in the system, they are now stored in configuration files (config.yaml) rather than being hardcoded in the server code. This makes the system more maintainable and allows for easier updates to server addresses.
+
 1. Connect to UH gateway:
 ```bash
 ssh username@pangolin.it.helsinki.fi
