@@ -17,27 +17,19 @@ another. Should time allow, the idea of a file name set index has also been
 discussed as a third feature.
 
 ### Behaviour on checking for modification time
-Status as of 2024-11-08: Suggestions only, to use as a direction in further
-design.
-
 To ensure the most recent file is provided, the server contacts its peers with
 a version check message. The message follows the format
 `Last-Modified-Check <filename>`.
 
 The peer servers respond to the query with
-`Last-Modified <filename> <timestamp> <node-ID>`.
+`Last-Modified <filename> <timestamp> <node-address>`.
 
 ### Behaviour on fetching files
-Status as of 2024-11-08: Suggestions only, to use as a direction in further
-design.
-
 To request the most recent version of the file from its peer, the server sends
 a message containing `File-Provision-Request <filename>` to which the other
 server answers by `File-Provision <filename>\n <file data>`.
 
 ### Behaviour on forming the file index
-Status as of 2024-11-08: Provisionary feature, may not be part of end product.
-
 To request a listing of all the files on the service, a server sends out the
 message `Index-Listing-Request` to its peers.
 
@@ -77,3 +69,7 @@ filename and actual file contents as form fields in the POST request. The field
 names to use are `name` for the filename and `file` for the contents. Processing
 the input as form data allows the upload of binary files and allows us to avoid
 URL-encoding all the inputs.
+
+## Peer node discovery
+The details of peer node discovery are provided in
+[associated solution documentation](node-discovery.md).
